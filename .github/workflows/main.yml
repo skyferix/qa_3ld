@@ -12,5 +12,6 @@ jobs:
       run: |
         yarn
         yarn add eslint
+        npm init @eslint/config -y
     - name: Run ESLint
       run: yarn run eslint . --ext .js,.jsx,.ts,.tsx --no-error-on-unmatched-pattern
