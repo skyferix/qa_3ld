@@ -1,42 +1,36 @@
 
-class StudentAdd {
+class AddStudentManager {
     private selectList: NodeListOf<HTMLSelectElement>;
 
-    constructor(){
-        this.setVariables();
+    constructor() {
+        this.setAttributes();
         this.setListeners();
     }
 
-    private setVariables(){
+    private setAttributes() {
         this.selectList = document.querySelectorAll("select[is='studentSelect']");
     }
 
-    private setListeners(){
+    private setListeners() {
         this.selectList.forEach((select) => {
-            select.addEventListener('change', StudentAdd.addStudent);
+            select.addEventListener('change', AddStudentManager.addStudent);
         })
     }
 
-    private static addStudent(ev:Event & {target:HTMLSelectElement}){
-        let groupId = ev.target.dataset.group;
-        let studentId = ev.target.selectedOptions[0].dataset.student;
-        let data = {
-            "groupId": groupId,
-            "studentId": studentId
-        };
+    private static addStudent(ev:Event & {target:HTMLSelectElement}) {
+        const groupId = ev.target.dataset.group;
+        const studentId = ev.target.selectedOptions[0].dataset.student;
+        const data = {groupId, studentId}
         $.ajax({
             url: '/student/add',
             contentType: 'application/x-www-form-urlencoded',
             method: 'POST',
-            data: data,
+            data,
             success:function (data){
                 location.reload();
-            },
-            error: function (data) {
-                console.log(data);
             }
-        })
+        }).catch(error => throw error)
     }
 
 }
-let addStudent = new StudentAdd();
+const addStudent = new AddStudentManager();
