@@ -13,4 +13,4 @@ jobs:
         yarn
         yarn add eslint
     - name: Run ESLint
-      run: eslint . --ext .js,.jsx,.ts,.tsx
+      run: yarn run eslint . --ext .js,.jsx,.ts,.tsx --no-error-on-unmatched-pattern
