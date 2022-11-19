@@ -9,6 +9,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install modules
-      run: yarn
+      run: |
+        yarn
+        yarn install eslint
     - name: Run ESLint
       run: eslint . --ext .js,.jsx,.ts,.tsx
