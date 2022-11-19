@@ -1,2 +1,2 @@
-const test = 1
+const test =x 1
 console.log(test)
