@@ -9,9 +9,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install modules
-      run: |
-        yarn
-        yarn add eslint
-        npm init @eslint/config
+      run: yarn
     - name: Run ESLint
-      run: yarn run eslint . --ext .js,.jsx,.ts,.tsx --no-error-on-unmatched-pattern
+      run: eslint . --ext .js,.jsx,.ts,.tsx
