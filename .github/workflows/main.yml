@@ -9,8 +9,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Install modules
-      run: | 
-        npm init -y
-        npm install 
-        npm install eslint@8.28.0
-    - uses: stefanoeb/eslint-action@1.0.2
+      run: yarn
+    - name: Run ESLint
+      run: eslint . --ext .js,.jsx,.ts,.tsx
