@@ -13,4 +13,4 @@ jobs:
         npm init -y
         npm install 
     - name: Run ESLint
-      run: npx eslint --ext .ts ./
+      run: npx eslint --ext .ts "./"
